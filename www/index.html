@@ -6,31 +6,12 @@
   <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
   <script src="components/loader.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="js/main.js"></script>
 
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
   <link rel="stylesheet" href="css/style.css">
-
-  <script>
-    ons.ready(function() {
-      console.log("Onsen UI is ready!");
-    });
-
-    window.fn = {};
-    window.fn.open = function() {
-      var menu = document.getElementById('menu');
-      menu.open();
-    };
-    window.fn.load = function(page) {
-      var content = document.getElementById('content');
-      var menu = document.getElementById('menu');
-      content
-        .load(page)
-        .then(menu.close.bind(menu));
-    };
-
-  </script>
 </head>
 <body>
   <ons-splitter>
@@ -38,7 +19,7 @@
       <ons-page>
         <ons-list>
           <ons-list-item onclick="fn.load('home.html')" tappable>
-            Home
+            ガチャる
           </ons-list-item>
           <ons-list-item onclick="fn.load('settings.html')" tappable>
             Settings
@@ -65,8 +46,12 @@
         </div>
       </ons-toolbar>
       <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
-        <li>aaa</li>
+        <select id="charactor">
+        </select>
       </p>
+      <div>
+        <span id="result" style="text-align: center; opacity: 0.6; padding-top: 20px;">aaa</span>
+      </div>
     </ons-page>
   </ons-template>
 
