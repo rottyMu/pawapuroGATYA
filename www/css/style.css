@@ -1,4 +1,8 @@
 /** 共通 */
-#charactor {
+#charactor, #reality {
+    width: 20%;
+}
+
+#setCalcParam.td {
     width: 20%;
 }

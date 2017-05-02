@@ -43,13 +43,44 @@
           </ons-toolbar-button>
         </div>
         <div class="center">
-          Main
+          イベキャラ出現率
         </div>
       </ons-toolbar>
       <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
         <select id="charactor">
         </select>
+        <select id="reality">
+        </select>
       </p>
+      <table id="setCalcParam">
+        <tr>
+      		<td>PSR</td>
+            <td><input type="tel" id="psrInput" value="0" />%</td>
+      	</tr>
+        <tr>
+          	<td>SR</td>
+            <td><input type="tel" id="srInput" value="0" />%</td>
+      	</tr>
+        <tr>
+            <td>PR</td>
+            <td><input type="tel" id="prInput" value="0" />%</td>
+      	</tr>
+        <tr>
+            <td>R</td>
+            <td><input type="tel" id="rInput" value="0" />%</td>
+        </tr>
+        <tr>
+            <td>PN</td>
+            <td><input type="tel" id="pnInput" value="0" />%</td>
+        </tr>
+        <tr>
+            <td>N</td>
+            <td><input type="tel" id="nInput" value="0" />%</td>
+        </tr>
+      </table>
+      <div>
+        <input type="button" id="start" value="スタート" />
+      </div>
       <div>
         <span id="result" style="text-align: center; opacity: 0.6; padding-top: 20px;">aaa</span>
       </div>
