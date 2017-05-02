@@ -9,6 +9,7 @@ window.fn = {};
  * メニューを読み込む。*/
 ons.ready(function() {
   loadJson('dageki');
+  caluculate();
 });
 
 /**
