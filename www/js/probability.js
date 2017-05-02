@@ -44,50 +44,53 @@ function caluculate() {
                 if (realityRand <= 0.05) {
                     chkReality = "0";
                     if (selectReality == chkReality) {
-                        $('#result').text(cnt + '回で引きました！');
+                        $('#result').text(cnt + '回でPSRを引きました！');
                         break;
                     } else {
                         // レアリティを再抽選
-                        realityRand = Math.round(Math.random(), 2);
+                        num = Math.random();
+                        realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
                         cnt++;
                         console.log('レアリティ再抽選');
                     }
                 } else if (realityRand > 0.05 && realityRand <= 0.25) {
                     chkReality = "1";
                     if (selectReality == chkReality) {
-                        $('#result').val(cnt + '回で引きました！');
+                        $('#result').text(cnt + '回でSRを引きました！');
                         break;
                     } else {
                         // レアリティを再抽選
-                        realityRand = Math.round(Math.random(), 2);
+                        num = Math.random();
+                        realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
                         cnt++;
                         console.log('レアリティ再抽選');
                     }
                 } else if (realityRand > 0.25 && realityRand <= 0.50) {
                     chkReality = "2";
                     if (selectReality == chkReality) {
-                        $('#result').val(cnt + '回で引きました！');
+                        $('#result').text(cnt + '回でPRを引きました！');
                         break;
                     } else {
                         // レアリティを再抽選
-                        realityRand = Math.round(Math.random(), 2);
+                        num = Math.random();
+                        realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
                         cnt++;
                         console.log('レアリティ再抽選');
                     }
                 } else {
                     chkReality = "3";
                     if (selectReality == chkReality) {
-                        $('#result').val(cnt + '回で引きました！');
+                        $('#result').text(cnt + '回でRを引きました！');
                         break;
                     } else {
                         // レアリティを再抽選
-                        realityRand = Math.round(Math.random(), 2);
+                        num = Math.random();
+                        realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
                         cnt++;
                         console.log('レアリティ再抽選');
                     }
                 }
             }
-            break;
         } else {
             console.log('イベキャラ再抽選');
             // イベキャラを再抽選
