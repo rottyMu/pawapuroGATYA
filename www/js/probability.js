@@ -19,84 +19,124 @@ function caluculate() {
     
     // イベキャラの抽選
     // TODO: *6のところはjsonから取得するようにする
-    var characterRand = Math.floor( Math.random() * 2 );
+    var characterRand = Math.floor( Math.random() * 10 );
     
     // レアリティの抽選
     var num = Math.random();
     var realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
     
     // レアリティチェック用変数
-    var chkReality = "XXXXX";
+    var chkReality = 99999;
     
     // 抽選回数
     var cnt = 1;
     
-    for (var i=0; selectCharacter == characterRand; i++) {
+    while (selectCharacter != characterRand) {
         console.log('selectキャラ' + selectCharacter);
         console.log('抽選キャラ' + characterRand);
-        // 選択したイベキャラを引けた場合
-        if (selectCharacter == characterRand) {
-            console.log('キャラ一致');
-            for (var j=0; selectReality == chkReality; j++) {
-                console.log('selectレア' + selectReality);
-                console.log('抽選レア' + realityRand);
-                // PSRの場合
-                if (realityRand <= 0.05) {
-                    chkReality = "0";
-                    if (selectReality == chkReality) {
-                        $('#result').text(cnt + '回でPSRを引きました！');
-                        break;
-                    } else {
-                        // レアリティを再抽選
-                        num = Math.random();
-                        realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
-                        cnt++;
-                        console.log('レアリティ再抽選');
-                    }
-                } else if (realityRand > 0.05 && realityRand <= 0.25) {
-                    chkReality = "1";
-                    if (selectReality == chkReality) {
-                        $('#result').text(cnt + '回でSRを引きました！');
-                        break;
-                    } else {
-                        // レアリティを再抽選
-                        num = Math.random();
-                        realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
-                        cnt++;
-                        console.log('レアリティ再抽選');
-                    }
-                } else if (realityRand > 0.25 && realityRand <= 0.50) {
-                    chkReality = "2";
-                    if (selectReality == chkReality) {
-                        $('#result').text(cnt + '回でPRを引きました！');
-                        break;
-                    } else {
-                        // レアリティを再抽選
-                        num = Math.random();
-                        realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
-                        cnt++;
-                        console.log('レアリティ再抽選');
-                    }
-                } else {
-                    chkReality = "3";
-                    if (selectReality == chkReality) {
-                        $('#result').text(cnt + '回でRを引きました！');
-                        break;
-                    } else {
-                        // レアリティを再抽選
-                        num = Math.random();
-                        realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
-                        cnt++;
-                        console.log('レアリティ再抽選');
-                    }
-                }
+        while (selectReality != chkReality) {
+            // PSRの場合
+            if (realityRand <= 0.05) {
+                chkReality = 0;
+                // レアリティを再抽選
+                num = Math.random();
+                realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
+                cnt++;
+                console.log('レアリティ再抽選');
+            } else if (realityRand > 0.05 && realityRand <= 0.25) {
+                chkReality = 1;
+                // レアリティを再抽選
+                num = Math.random();
+                realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
+                cnt++;
+                console.log('レアリティ再抽選');
+            } else if (realityRand > 0.25 && realityRand <= 0.50) {
+                chkReality = 2;
+                // レアリティを再抽選
+                num = Math.random();
+                realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
+                cnt++;
+                console.log('レアリティ再抽選');;
+            } else {
+                chkReality = 3;
+                // レアリティを再抽選
+                num = Math.random();
+                realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
+                cnt++;
+                console.log('レアリティ再抽選');
             }
-        } else {
-            console.log('イベキャラ再抽選');
-            // イベキャラを再抽選
-            characterRand = Math.floor( Math.random() * 6 );
-            cnt++;
         }
-
     }
+    $('#result').text(cnt + '回で引きました！');
+    
+//     for (var i=0; selectCharacter == characterRand; i++) {
+//         console.log('selectキャラ' + selectCharacter);
+//         console.log('抽選キャラ' + characterRand);
+//         // 選択したイベキャラを引けた場合
+//         if (selectCharacter == characterRand) {
+//             console.log('キャラ一致');
+//             $('#result').text(cnt + '回でPSRを引きました！');
+//             for (var j=0; selectReality == chkReality; j++) {
+//                 console.log('selectレア' + selectReality);
+//                 console.log('抽選レア' + realityRand);
+//                 // PSRの場合
+//                 if (realityRand <= 0.05) {
+//                     chkReality = 0;
+//                     if (selectReality == chkReality) {
+//                         $('#result').text(cnt + '回でPSRを引きました！');
+//                         break;
+//                     } else {
+//                         // レアリティを再抽選
+//                         num = Math.random();
+//                         realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
+//                         cnt++;
+//                         console.log('レアリティ再抽選');
+//                     }
+//                 } else if (realityRand > 0.05 && realityRand <= 0.25) {
+//                     chkReality = 1;
+//                     if (selectReality == chkReality) {
+//                         $('#result').text(cnt + '回でSRを引きました！');
+//                         break;
+//                     } else {
+//                         // レアリティを再抽選
+//                         num = Math.random();
+//                         realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
+//                         cnt++;
+//                         console.log('レアリティ再抽選');
+//                     }
+//                 } else if (realityRand > 0.25 && realityRand <= 0.50) {
+//                     chkReality = 2;
+//                     if (selectReality == chkReality) {
+//                         $('#result').text(cnt + '回でPRを引きました！');
+//                         break;
+//                     } else {
+//                         // レアリティを再抽選
+//                         num = Math.random();
+//                         realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
+//                         cnt++;
+//                         console.log('レアリティ再抽選');
+//                     }
+//                 } else {
+//                     chkReality = 3;
+//                     if (selectReality == chkReality) {
+//                         $('#result').text(cnt + '回でRを引きました！');
+//                         break;
+//                     } else {
+//                         // レアリティを再抽選
+//                         num = Math.random();
+//                         realityRand = Math.round(num * Math.pow( 10 , 2 )) / Math.pow( 10 , 2 );
+//                         cnt++;
+//                         console.log('レアリティ再抽選');
+//                     }
+//                 }
+//             }
+//             break;
+//         } else {
+//             console.log('イベキャラ再抽選');
+//             // イベキャラを再抽選
+//             characterRand = Math.floor( Math.random() * 6 );
+//             cnt++;
+//         }
+// 
+//     }
 };
